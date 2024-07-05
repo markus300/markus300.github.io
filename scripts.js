@@ -4,8 +4,8 @@ function showSlide(n) {
     const slides = document.getElementsByClassName("slide");
     if (n >= slides.length) index = 0;
     if (n < 0) index = slides.length - 1;
-    for (let slide of slides) {
-        slide.style.transform = `translateX(${-index * 100}%)`;
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.transform = `translateX(${-index * 100}%)`;
     }
 }
 
@@ -14,4 +14,7 @@ function nextSlide() {
     showSlide(index);
 }
 
-setInterval(nextSlide, 3000);
+function prevSlide() {
+    index--;
+    showSlide(index);
+}
